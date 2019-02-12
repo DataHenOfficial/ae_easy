@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ae_easy (0.0.1)
+    ae_easy (0.0.2)
       ae_easy-core (~> 0.0.1)
 
 GEM
@@ -47,7 +47,7 @@ PLATFORMS
 DEPENDENCIES
   ae_easy!
   byebug
-  minitest (~> 5.11.3)
+  minitest (~> 5.11)
   rake (~> 10.0)
   simplecov (~> 0.16.1)
   simplecov-console (~> 0.4.2)
