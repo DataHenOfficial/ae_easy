@@ -1,4 +1,4 @@
-[![Gem Version](https://badge.fury.io/rb/ae_easy-core.svg)](http://github.com/answersengine/ae_easy/releases)
+[![Gem Version](https://badge.fury.io/rb/ae_easy.svg)](http://github.com/answersengine/ae_easy/releases)
 [![License](http://img.shields.io/badge/license-MIT-yellowgreen.svg)](#license)
 
 # AeEasy core module
