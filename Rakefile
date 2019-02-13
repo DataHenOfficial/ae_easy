@@ -1,11 +1,12 @@
 require 'benchmark'
+require 'bundler/gem_tasks'
 require 'rake/testtask'
 
 Rake::TestTask.new do |t|
   t.libs = ['lib', 'test']
   t.warning = false
   t.verbose = false
-  t.test_files = FileList['./test/**/*_test.rb'] + FileList['./test/gem_test.rb']
+  t.test_files = FileList['./test/**/*_test.rb']
 end
 
 desc 'Benchmark another task execution | usage example: benchmark[my_task, param1, param2]'
