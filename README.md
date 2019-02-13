@@ -9,5 +9,10 @@ AeEasy gem collection allow advance AnswersEngine features possible by including
 Install gem:
 ```gem install 'ae_easy'```
 
-Require gem
+Require gem:
 ```require 'ae_easy'```
+
+Included gems documentation:
+```
+ae_easy-core: http://rubydoc.org/gems/ae_easy-core/frames
+```

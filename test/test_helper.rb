@@ -1,3 +1,5 @@
+$LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
+
 require 'simplecov'
 require 'simplecov-console'
 SimpleCov.formatter = SimpleCov::Formatter::Console
