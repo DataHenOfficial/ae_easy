@@ -39,6 +39,9 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 2.2.2'
 
   spec.add_dependency 'ae_easy-core', '>= 0'
+  spec.add_dependency 'ae_easy-config', '>= 0'
+  spec.add_dependency 'ae_easy-text', '>= 0'
+  spec.add_dependency 'ae_easy-router', '>= 0'
   spec.add_development_dependency 'bundler', '>= 1.16.3'
   spec.add_development_dependency 'rake', '>= 10.0'
   spec.add_development_dependency 'minitest', '>= 5.11'
