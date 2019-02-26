@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ae_easy (0.0.3)
+    ae_easy (0.0.4)
       ae_easy-config
       ae_easy-core
       ae_easy-router
