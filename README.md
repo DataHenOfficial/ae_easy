@@ -15,4 +15,7 @@ Require gem:
 Included gems documentation:
 ```
 ae_easy-core: http://rubydoc.org/gems/ae_easy-core/frames
+ae_easy-core: http://rubydoc.org/gems/ae_easy-config/frames
+ae_easy-core: http://rubydoc.org/gems/ae_easy-router/frames
+ae_easy-core: http://rubydoc.org/gems/ae_easy-text/frames
 ```
