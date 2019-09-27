@@ -42,6 +42,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'ae_easy-config', '>= 0'
   spec.add_dependency 'ae_easy-text', '>= 0'
   spec.add_dependency 'ae_easy-router', '>= 0'
+  spec.add_dependency 'ae_easy-login', '>= 0'
   spec.add_development_dependency 'bundler', '>= 1'
   spec.add_development_dependency 'rake', '~> 10'
   spec.add_development_dependency 'minitest', '~> 5'
