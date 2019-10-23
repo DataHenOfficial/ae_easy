@@ -150,13 +150,13 @@ Now let's try this on our sample project's seeders and parsers:
 ```ruby
 # ./seeder/seeder.rb
 
-module Seeders
+module Seeder
   class Seeder
     include AeEasy::Core::Plugin::Seeder
 
     def seed
       pages << {
-        'url' => 'https://example.com/login.rb?query=food',
+        'url' => 'https://example.com/search?query=food',
         'page_type' => 'search'
       }
     end
@@ -169,6 +169,8 @@ end
 
 module Parsers
   class Search
+    include AeEasy::Core::Plugin::Parser
+
     def parse
       html = Nokogiri.HTML content
       html.css('.name').each do |element|
@@ -189,6 +191,8 @@ end
 
 module Parsers
   class Product
+    include AeEasy::Core::Plugin::Parser
+
     def parse
       html = Nokogiri.HTML content
       description = html.css('.description').first.text.strip
@@ -208,7 +212,7 @@ Next step is to add router capabilities to consume these classes. To do this, le
 # ./router/seeder.rb
 
 require 'ae_easy/router'
-require './seeder/seeder.rb'
+require './seeder/seeder'
 
 AeEasy::Router::Seeder.new.route context: self
 ```
@@ -218,8 +222,8 @@ AeEasy::Router::Seeder.new.route context: self
 
 require 'cgi'
 require 'ae_easy/router'
-require './parsers/search.rb'
-require './parsers/product.rb'
+require './parsers/search'
+require './parsers/product'
 
 AeEasy::Router::Parser.new.route context: self
 ```
@@ -236,9 +240,10 @@ router:
         class: Parsers::Search
       - page_type: product
         class: Parsers::Product
+
   seeder:
     routes:
-      - class: Seeders::Search
+      - class: Seeder::Seeder
 ```
 
 Finally, we need to modify our `./config.yaml` to use our routers:
@@ -249,6 +254,7 @@ Finally, we need to modify our `./config.yaml` to use our routers:
 seeder:
   file: ./router/seeder.rb
   disabled: false
+
 parsers:
   - page_type: search
     file: ./router/parser.rb
