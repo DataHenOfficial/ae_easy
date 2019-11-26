@@ -1,35 +1,35 @@
-[![Gem Version](https://badge.fury.io/rb/ae_easy.svg)](http://github.com/answersengine/ae_easy/releases)
+[![Gem Version](https://badge.fury.io/rb/dh_easy.svg)](http://github.com/DataHenOfficial/dh_easy/releases)
 [![License](http://img.shields.io/badge/license-MIT-yellowgreen.svg)](#license)
 
-# AeEasy
+# DhEasy
 ## Description
 
-AeEasy gem collection allow advance AnswersEngine features possible by including a collection of specialized gems.
+DhEasy gem collection allow advance DataHen features possible by including a collection of specialized gems.
 
 Install gem:
 ```ruby
-gem install 'ae_easy'
+gem install 'dh_easy'
 ```
 
 Require gem:
 ```ruby
-require 'ae_easy'
+require 'dh_easy'
 ```
 
 Included gems documentation:
 ```
-ae_easy-core: http://rubydoc.org/gems/ae_easy-core/frames
-ae_easy-config: http://rubydoc.org/gems/ae_easy-config/frames
-ae_easy-router: http://rubydoc.org/gems/ae_easy-router/frames
-ae_easy-text: http://rubydoc.org/gems/ae_easy-text/frames
-ae_easy-login: http://rubydoc.org/gems/ae_easy-login/frames
+dh_easy-core: http://rubydoc.org/gems/dh_easy-core/frames
+dh_easy-config: http://rubydoc.org/gems/dh_easy-config/frames
+dh_easy-router: http://rubydoc.org/gems/dh_easy-router/frames
+dh_easy-text: http://rubydoc.org/gems/dh_easy-text/frames
+dh_easy-login: http://rubydoc.org/gems/dh_easy-login/frames
 ```
 
 ## How to implement
 
-### Sample AnswersEngine project
+### Sample DataHen project
 
-Lets take a simple project without `ae_easy`:
+Lets take a simple project without `dh_easy`:
 
 ```yaml
 # ./config.yaml
@@ -83,18 +83,18 @@ outputs << {
 }
 ```
 
-### Adding ae_easy to sample project
+### Adding dh_easy to sample project
 
-One of AeEasy's main feature is to allow users to use classes instead of raw scripts with the whole `answersengine` gem contexts (seeder, parsers, finishers, etc.) functions and objects integreated directly on our classes.
+One of DhEasy's main feature is to allow users to use classes instead of raw scripts with the whole `datahen` gem contexts (seeder, parsers, finishers, etc.) functions and objects integreated directly on our classes.
 
-Converting seeders, parsers and finishers to AeEasy supported classes is quite easy, just wrap your seeders and parsers like this:
+Converting seeders, parsers and finishers to DhEasy supported classes is quite easy, just wrap your seeders and parsers like this:
 
 ```ruby
 class MySeeder
-  include AeEasy::Core::Plugin::Seeder
-  
+  include DhEasy::Core::Plugin::Seeder
+
   # Create "initialize_hook_*" methods instead of "initialize" method
-  #  to prevent overriding the logic behind AeEasy
+  #  to prevent overriding the logic behind DhEasy
   def initialize_hook_my_seeder opts = {}
     @my_param = opts[:my_param]
   end
@@ -109,14 +109,14 @@ end
 
 ```ruby
 class MyParser
-  include AeEasy::Core::Plugin::Parser
-  
+  include DhEasy::Core::Plugin::Parser
+
   # Create "initialize_hook_*" methods instead of "initialize" method
-  #  to prevent overriding the logic behind AeEasy
+  #  to prevent overriding the logic behind DhEasy
   def initialize_hook_my_parser opts = {}
     @my_param = opts[:my_param]
   end
-  
+
   def parse
 
     # Your parser code goes here
@@ -127,14 +127,14 @@ end
 
 ```ruby
 class MyFinisher
-  include AeEasy::Core::Plugin::Finisher
-  
+  include DhEasy::Core::Plugin::Finisher
+
   # Create "initialize_hook_*" methods instead of "initialize" method
-  #  to prevent overriding the logic behind AeEasy
+  #  to prevent overriding the logic behind DhEasy
   def initialize_hook_my_parser opts = {}
     @my_param = opts[:my_param]
   end
-  
+
   def finish
 
     # Your finisher code goes here
@@ -143,7 +143,7 @@ class MyFinisher
 end
 ```
 
-You can also add `initialize_hook_` methods to extend the default `initialize` provided by AeEasy plugins.
+You can also add `initialize_hook_` methods to extend the default `initialize` provided by DhEasy plugins.
 
 Now let's try this on our sample project's seeders and parsers:
 
@@ -152,7 +152,7 @@ Now let's try this on our sample project's seeders and parsers:
 
 module Seeder
   class Seeder
-    include AeEasy::Core::Plugin::Seeder
+    include DhEasy::Core::Plugin::Seeder
 
     def seed
       pages << {
@@ -169,7 +169,7 @@ end
 
 module Parsers
   class Search
-    include AeEasy::Core::Plugin::Parser
+    include DhEasy::Core::Plugin::Parser
 
     def parse
       html = Nokogiri.HTML content
@@ -191,7 +191,7 @@ end
 
 module Parsers
   class Product
-    include AeEasy::Core::Plugin::Parser
+    include DhEasy::Core::Plugin::Parser
 
     def parse
       html = Nokogiri.HTML content
@@ -211,27 +211,27 @@ Next step is to add router capabilities to consume these classes. To do this, le
 ```ruby
 # ./router/seeder.rb
 
-require 'ae_easy/router'
+require 'dh_easy/router'
 require './seeder/seeder'
 
-AeEasy::Router::Seeder.new.route context: self
+DhEasy::Router::Seeder.new.route context: self
 ```
 
 ```ruby
 # ./router/parser.rb
 
 require 'cgi'
-require 'ae_easy/router'
+require 'dh_easy/router'
 require './parsers/search'
 require './parsers/product'
 
-AeEasy::Router::Parser.new.route context: self
+DhEasy::Router::Parser.new.route context: self
 ```
 
-Now lets create our `./ae_easy.yaml` config file to link our routers to our new seeder and parsers classes:
+Now lets create our `./dh_easy.yaml` config file to link our routers to our new seeder and parsers classes:
 
 ```yaml
-# ./ae_easy.yaml
+# ./dh_easy.yaml
 
 router:
   parser:
@@ -264,4 +264,4 @@ parsers:
     disabled: false
 ```
 
-Hurray! you have successfullly implemented AeEasy on your project.
+Hurray! you have successfullly implemented DhEasy on your project.

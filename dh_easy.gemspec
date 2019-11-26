@@ -1,21 +1,21 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "ae_easy/version"
+require "dh_easy/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "ae_easy"
-  spec.version       = AeEasy::VERSION
+  spec.name          = "dh_easy"
+  spec.version       = DhEasy::VERSION
   spec.authors       = ["Eduardo Rosales"]
   spec.email         = ["eduardo@datahen.com"]
 
-  spec.summary       = %q{AnswersEngine Easy toolkit modules.}
-  spec.description   = %q{AnswersEngine Easy toolkit module collection.}
-  spec.homepage      = "https://answersengine.com"
+  spec.summary       = %q{DataHen Easy toolkit modules.}
+  spec.description   = %q{DataHen Easy toolkit module collection.}
+  spec.homepage      = "https://datahen.com"
   spec.license       = "MIT"
 
-  # spec.cert_chain  = ['certs/ae_easy.pem']
-  # spec.signing_key = File.expand_path("~/.ssh/gems/gem-private_ae_easy.pem") if $0 =~ /gem\z/
+  # spec.cert_chain  = ['certs/dh_easy.pem']
+  # spec.signing_key = File.expand_path("~/.ssh/gems/gem-private_dh_easy.pem") if $0 =~ /gem\z/
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
     # spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
     spec.metadata["homepage_uri"] = spec.homepage
-    spec.metadata["source_code_uri"] = "https://github.com/answersengine/ae_easy"
+    spec.metadata["source_code_uri"] = "https://github.com/DataHenOfficial/dh_easy"
     # spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
   else
     raise "RubyGems 2.0 or newer is required to protect against " \
@@ -38,11 +38,11 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
   spec.required_ruby_version = '>= 2.2.2'
 
-  spec.add_dependency 'ae_easy-core', '>= 0'
-  spec.add_dependency 'ae_easy-config', '>= 0'
-  spec.add_dependency 'ae_easy-text', '>= 0'
-  spec.add_dependency 'ae_easy-router', '>= 0'
-  spec.add_dependency 'ae_easy-login', '>= 0'
+  spec.add_dependency 'dh_easy-core', '>= 0'
+  spec.add_dependency 'dh_easy-config', '>= 0'
+  spec.add_dependency 'dh_easy-text', '>= 0'
+  spec.add_dependency 'dh_easy-router', '>= 0'
+  spec.add_dependency 'dh_easy-login', '>= 0'
   spec.add_development_dependency 'bundler', '>= 1'
   spec.add_development_dependency 'rake', '~> 10'
   spec.add_development_dependency 'minitest', '~> 5'
